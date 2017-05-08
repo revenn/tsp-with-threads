@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 	do
 	{
 		system("cls");
-		std::cout << "TRAVELLING SALESMAN PROBLEM\nWybierz, co zrobic:\n\n1 - Zbuduj z pliku\n2 - Utworz losowo\n3 - Wyswietl\n4 - Algorytm\n5 - Zakoncz" << std::endl;
+		std::cout << "TRAVELLING SALESMAN PROBLEM\nWybierz, co zrobic:\n\n1 - Zbuduj z pliku\n2 - Utworz losowo\n3 - Wyswietl\n4 - Algorytm B&B bez wielowatkowosci\n5 - Algorytm przegladu zupelnego bez wielowatkowosci\n6 - Zakoncz" << std::endl;
 		std::cin >> choose;
 
 		switch (choose)
@@ -52,6 +52,19 @@ int main(int argc, char* argv[])
 			system("Pause");
 			break;
 		}
+		case 4:
+		{
+			std::vector<int>* wynik = a->BoundAndBranch();
+			for (int i = 0; i < wynik->size(); ++i)
+				std::cout << wynik->at(i) << " -> ";
+
+			std::cout << wynik->at(0) << std::endl;
+			std::cout << "Koszt trasy wynosi: " << a->koszt(wynik, a->macierz) << std::endl;
+
+			delete(wynik);
+			system("Pause");
+			break;
+		}
 		case 5:
 		{
 			break;
@@ -63,7 +76,7 @@ int main(int argc, char* argv[])
 		}
 		}
 
-	} while (choose != 5);
+	} while (choose != 6);
 
 	return 0;
 }
