@@ -1,0 +1,25 @@
+﻿Build started 20.Jan.2017 13:00:49.
+     1>Project "C:\Users\PAWITKOW\Desktop\Studia\PEA\PEA1\PEA1\PEA1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Menu.cpp Node.cpp main.cpp
+         main.cpp
+         Node.cpp
+     1>c:\users\pawitkow\desktop\studia\pea\pea1\pea1\node.cpp(105): warning C4018: '<' : signed/unsigned mismatch
+         Menu.cpp
+     1>c:\users\pawitkow\desktop\studia\pea\pea1\pea1\menu.cpp(99): warning C4244: 'initializing' : conversion from 'LONGLONG' to 'double', possible loss of data
+     1>c:\users\pawitkow\desktop\studia\pea\pea1\pea1\menu.cpp(182): warning C4244: 'initializing' : conversion from 'LONGLONG' to 'double', possible loss of data
+         Generating Code...
+     1>c:\users\pawitkow\desktop\studia\pea\pea1\pea1\node.cpp(52): warning C4715: 'Node::operator=' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\PAWITKOW\Desktop\Studia\PEA\PEA1\Debug\PEA1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\PAWITKOW\Desktop\Studia\PEA\PEA1\Debug\PEA1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\PAWITKOW\Desktop\Studia\PEA\PEA1\Debug\PEA1.lib" /MACHINE:X86 Debug\Komiwojazer.obj
+         Debug\Macierz.obj
+         Debug\main.obj
+         Debug\Menu.obj
+         Debug\Node.obj
+         Debug\Tree.obj
+         PEA1.vcxproj -> C:\Users\PAWITKOW\Desktop\Studia\PEA\PEA1\Debug\PEA1.exe
+     1>Done Building Project "C:\Users\PAWITKOW\Desktop\Studia\PEA\PEA1\PEA1\PEA1.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.04
