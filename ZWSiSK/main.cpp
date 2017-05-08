@@ -67,6 +67,15 @@ int main(int argc, char* argv[])
 		}
 		case 5:
 		{
+			std::vector<int>* wynik = a->przegladZupelny();
+			for (int i = 0; i < wynik->size(); ++i)
+				std::cout << wynik->at(i) << " -> ";
+
+			std::cout << wynik->at(0) << std::endl;
+			std::cout << "Koszt trasy wynosi: " << a->koszt(wynik, a->macierz) << std::endl;
+
+			delete(wynik);
+			system("Pause");
 			break;
 		}
 

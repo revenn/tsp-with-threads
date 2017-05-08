@@ -318,5 +318,18 @@ std::vector<int>* TSP::przegladZupelny()
 {
 	std::vector<int>* najlepszaTrasa = new std::vector<int>();
 
+	//size -> ilosc miast
+	//macierz -> macierz przejsc
+	//macierz uzywamy maierz(wiersz, kolumna)
+
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			(*macierz)(i, j);
+		}
+	}
+
+
 	return najlepszaTrasa;
 }
