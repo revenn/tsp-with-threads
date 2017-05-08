@@ -33,6 +33,7 @@ public:
 	void wstaw(size_t wiersz, size_t kolumna, int wartosc);
 	int get_wartosc(size_t wiersz, size_t kolumna);
 	int get_rozmiar_miasta() { return mapa.get_rozmiar(); }
+	Macierz get_mapa() { return mapa; }
 
 };
 

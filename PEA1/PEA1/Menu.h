@@ -3,6 +3,8 @@
 #include <conio.h>
 #include <Windows.h>
 #include "Tree.h"
+#include "Zachlanny.h"
+#include "Macierz.h"
 
 class Menu
 {

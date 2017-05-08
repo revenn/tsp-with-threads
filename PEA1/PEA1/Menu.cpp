@@ -15,6 +15,7 @@ void Menu::uruchom()
 	Komiwojazer* komiwojazer = nullptr;
 	Node *parent = nullptr;
 	Tree *tree = nullptr;
+	Macierz *mapa = nullptr;
 
 	std::cout << "Problem komiwojazer - Branch & Bound" << std::endl << std::endl;
 	int wybor;
@@ -26,8 +27,9 @@ void Menu::uruchom()
 		std::cout << "1. Wczytaj z pliku." << std::endl;
 		std::cout << "2. Generuj dane." << std::endl;
 		std::cout << "3. Wyswietl. " << std::endl;
-		std::cout << "4. Wykonaj algorytm." << std::endl;
-		std::cout << "5. Koniec." << std::endl;
+		std::cout << "4. Algorytm B&B." << std::endl;
+		std::cout << "5. Przeglad zaupelny." << std::endl;
+		std::cout << "6. Koniec." << std::endl;
 
 		std::cin >> wybor;
 
@@ -43,6 +45,8 @@ void Menu::uruchom()
 				delete tree;
 			if (parent != nullptr)
 				delete parent;
+			if (mapa != nullptr)
+				delete mapa;
 
 			komiwojazer = new Komiwojazer(1);
 			do
@@ -50,7 +54,7 @@ void Menu::uruchom()
 				std::cout << "Podaj nazwe pliku: " << std::endl;
 				std::cin >> plik;
 			} while (!komiwojazer->wczytaj_dane_z_pliku(plik));
-
+			mapa = new Macierz(komiwojazer->get_mapa());
 
 			powrot();
 		}
@@ -60,6 +64,8 @@ void Menu::uruchom()
 				delete tree;
 			if (parent != nullptr)
 				delete parent;
+			if (mapa != nullptr)
+				delete mapa;
 
 			plik = "";
 
@@ -72,6 +78,7 @@ void Menu::uruchom()
 			std::cout << "Podaj maksymalny koszt: " << std::endl;
 			std::cin >> max;
 			komiwojazer->generuja_dane(ilosc, min, max);
+			mapa = new Macierz(komiwojazer->get_mapa());
 
 			powrot();
 		}
@@ -87,7 +94,8 @@ void Menu::uruchom()
 		{
 			if (komiwojazer != nullptr)
 			{
-				parent = new Node(true, nullptr, komiwojazer, 0);
+				Komiwojazer* komiwojazer_kopia = new Komiwojazer(*komiwojazer);
+				parent = new Node(true, nullptr, komiwojazer_kopia, 0);
 				tree = new Tree(parent);
 
 				LARGE_INTEGER performanceCountStart, performanceCountEnd;
@@ -101,16 +109,38 @@ void Menu::uruchom()
 				tree->wyswietl_trase();
 				tree->wyswietl_koszt();
 				std::cout << "Czas wykonania: " << tm / 1000.0 << " ms" <<std::endl;
+
 			}
 			powrot();
 		}
 
 		if (wybor == 5)
 		{
+			if (komiwojazer != nullptr)
+			{
+				Zachlanny zach(*mapa);
+
+				LARGE_INTEGER performanceCountStart, performanceCountEnd;
+				performanceCountStart = start_timer(); //zapamiętujemy czas początkowy
+
+				zach.znajdz_trase();	//mierzenie czasu wyznaczania trasy
+
+				performanceCountEnd = end_timer(); //zapamiętujemy koniec czasu
+				double tm = performanceCountEnd.QuadPart - performanceCountStart.QuadPart;
+
+				std::cout << "Czas wykonania: " << tm / 1000.0 << " ms" << std::endl;
+			}
+			powrot();
+		}
+
+		if (wybor == 6)
+		{
 			if (tree != nullptr)
 				delete tree;
 			if (parent != nullptr)
 				delete parent;
+			if (mapa != nullptr)
+				delete mapa;
 			return;
 		}
 		
@@ -119,8 +149,9 @@ void Menu::uruchom()
 		std::cout << "1. Wczytaj z pliku." << std::endl;
 		std::cout << "2. Generuj dane." << std::endl;
 		std::cout << "3. Wyswietl. " << std::endl;
-		std::cout << "4. Wykonaj algorytm." << std::endl;
-		std::cout << "5. Koniec." << std::endl;
+		std::cout << "4. Algorytm B&B." << std::endl;
+		std::cout << "5. Przeglad zaupelny." << std::endl;
+		std::cout << "6. Koniec." << std::endl;
 
 		std::cin >> wybor;
 
