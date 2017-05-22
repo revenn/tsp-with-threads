@@ -3,8 +3,10 @@
 
 using namespace std;
 #include <string>
+#include <fstream>
+#include <iostream>
 
-#define CITIES_SIZE_15
+#define CITIES_FROM_FILE
 /* City parameters to set up:
  * can do this automatically using Python script
  * 
@@ -15,6 +17,54 @@ using namespace std;
  *     TO the cities in each column. The distances from A to B and B to A
  *     do not have to be equal (see Python script).
  *  */
+
+#ifdef CITIES_FROM_FILE
+	unsigned int num_cities;
+	string nazwa_pliku;
+
+	cin >> nazwa_pliku;
+
+	ifstream plik;
+	
+	plik.open(nazwa_pliku.c_str());
+	if (!plik.good())
+		return false;
+
+	plik >> num_cities;
+
+	unsigned int **mileage_table;
+
+	mileage_table = new int *[num_cities];
+	for (int i = 0; i < num_cities; i++)
+	{
+		mileage_table[i] = new int[num_cities];
+	}
+
+
+	int i = 0, j = 0;
+	while (true)
+	{
+		int koszt;
+		if (plik.good())
+		{
+			if (j == num_cities)
+			{
+				j = 0;
+				i++;
+			}
+			if (i == num_cities)
+				break;
+			plik >> koszt;
+			mileage_table[i][j] = koszt;
+			j++;
+		}
+		else
+			break; //zakoncz wczytywanie danych - wystapil jakis blad (np. nie ma wiecej danych w pliku)
+
+	}
+	plik.close();
+
+#endif //CITIES_FROM_FILE
 
 #ifdef CITIES_SIZE_5
 const unsigned int num_cities = 5;
