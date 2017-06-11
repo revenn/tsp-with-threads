@@ -5,6 +5,9 @@
 #include "Tree.h"
 #include "Zachlanny.h"
 #include "Macierz.h"
+#include "Cities.h"
+#include <chrono>
+#include "Tour.h"
 
 class Menu
 {

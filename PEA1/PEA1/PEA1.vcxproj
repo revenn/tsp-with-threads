@@ -78,10 +78,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cities.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Komiwojazer.h" />
     <ClInclude Include="Macierz.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Tour.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Zachlanny.h" />
   </ItemGroup>

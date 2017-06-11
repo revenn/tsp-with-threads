@@ -23,6 +23,7 @@ using namespace std;
 #define P_Iterative_DFS
 //#define CQ_Recursive_DFS
 //#define CS_Iterative_DFS
+//#define me
 
 
 int NUM_THREADS = 10;
@@ -53,7 +54,7 @@ int main(int argc, char* argv[]) {
 	Tour t;
 
 	if (argc < 2) {
-		cout << "Number of threads unspecified. Using " << NUM_THREADS << '.' << endl;
+		cout << "Ilosc watkow: " << NUM_THREADS << '.' << endl;
 	}
 	else {
 		NUM_THREADS = strtol(argv[1], NULL, 10);
@@ -79,6 +80,16 @@ int main(int argc, char* argv[]) {
 	t.clear();
 #endif
 	
+#ifdef me
+	chrono::high_resolution_clock::time_point DFSStart = std::chrono::high_resolution_clock::now();
+	iDFS(t);
+	chrono::high_resolution_clock::time_point DFSEnd = std::chrono::high_resolution_clock::now();
+	chrono::duration<double> DFSTime = chrono::duration_cast<std::chrono::duration<double>>(DFSEnd - DFSStart);
+
+	cout << DFSbest;
+	t.clear();
+#endif
+
 #ifdef Iterative_DFS
 	chrono::high_resolution_clock::time_point siDFSStart = std::chrono::high_resolution_clock::now();
 	siDFS(t);
@@ -133,16 +144,16 @@ int main(int argc, char* argv[]) {
 	cout << "Iterative BFS time: " << BFSTime.count() << " seconds." << endl;
 #endif
 #ifdef Recursive_DFS
-	cout << "Recursive DFS time: " << DFSTime.count() << " seconds." << endl;
+	cout << "Rekurencyjny B&B: " << DFSTime.count() << " sekund." << endl;
 #endif
 #ifdef Iterative_DFS
-	cout << "Iterative DFS time: " << siDFSTime.count() << " seconds." << endl;
-#endif
-#ifdef P_Iterative_DFS
-	cout << "Parallel Iterative DFS time: " << PSTime.count() << " seconds." << endl;
+	cout << "Iteracyjny B&B: " << siDFSTime.count() << " sekund." << endl;
 #endif
 #ifdef P_Recursive_DFS
-	cout << "Parallel Recursive DFS time: " << prDFSTime.count() << " seconds." << endl;
+	cout << "Rekurencyjny B&B z warkami: " << prDFSTime.count() << " sekund." << endl;
+#endif
+#ifdef P_Iterative_DFS
+	cout << "Iterecyjny B&B z watkami: " << PSTime.count() << " sekund." << endl;
 #endif
 #ifdef CQ_Recursive_DFS
 	cout << "Concurrent Queue Recursive DFS time: " << cqDFSTime.count() << " seconds." << endl;

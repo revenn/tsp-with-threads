@@ -6,7 +6,7 @@ using namespace std;
 #include <fstream>
 #include <iostream>
 
-#define CITIES_FROM_FILE
+#define CITIES_SIZE_15
 /* City parameters to set up:
  * can do this automatically using Python script
  * 
@@ -179,21 +179,21 @@ const unsigned int mileage_table[][num_cities] = {
 const unsigned int num_cities = 15;
 
 const string city_names[num_cities] = {
-    "Big Bear Lake",
-    "Elk Grove",
-    "Los Gatos       ",
-    "Oakdale",
-    "Oxnard",
-    "Rolling Hills",
-    "Santa Cruz",
-    "Signal Hill",
-    "Ukiah",
-    "Yreka",
-    "San Mateo",
-    "Redding",
-    "Montague",
-    "La Mesa",
-    "Guadalupe"
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
 };
 
 const unsigned int mileage_table[][num_cities] = {

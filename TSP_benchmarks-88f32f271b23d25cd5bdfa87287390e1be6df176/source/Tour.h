@@ -86,7 +86,7 @@ public:
 
 	// Output operator: print cost and list of names
 	friend ostream& operator << (ostream &outs, Tour t) {
-		cout << "\nCost = " << t.mileage << endl;
+		cout << "\nKoszt = " << t.mileage << endl;
 		for (vector<unsigned int>::iterator it = t.cities.begin();
 			it != t.cities.end(); it++) {
 			cout << city_names[*it] << " -> ";
